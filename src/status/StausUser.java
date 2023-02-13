@@ -11,7 +11,49 @@ package status;
  */
 public class StausUser 
 {
-   public void statusDetail(String code)
+   public enum StatusCode
+   {
+       ZERO, ONE, TWO, TREE
+   }
+   public enum Status
+   {
+       REJECTED, PENDING, PROCESSING, APPROVED, NOTVALIDCODE
+   }
+   private StatusCode code;
+   private Status status;
+   
+   public StausUser(StatusCode code, Status status)
+   {
+       this.code = code;
+       this.status = status;
+   }
+   public String setCode(StatusCode code)
+   {
+       if(code!="ZERO"&&code!="ONE"&&code!="TWO"&&code!="THREE")
+       {
+           return "NOT VALID CODE";
+       }
+       else
+       {
+           this.code = code;
+       }
+   }
+   public StatusCode getCode()
+   {
+       return this.code;
+   }
+   
+   public void setStatus(Status status)
+   {
+       this.status = status;
+   }
+   public Status getStatus()
+   {
+       return this.status;
+   }
+           
+   
+ /*  public void statusDetail(String code)
 {
 switch(code.toUpperCase())
         {
@@ -29,6 +71,5 @@ switch(code.toUpperCase())
          System.out.println("NOT VALID CODE");
         break;
         }
-}
- 
+}*/
 }
